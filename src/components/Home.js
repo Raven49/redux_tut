@@ -1,10 +1,12 @@
 import React from 'react'
 
-function Home()
-{
+function Home(props)
+{ 
+    console.warn("home",props.data)
     return(
         <div>
             <div className='Add to cart'>
+    <span className='cart-count'>{props.data.length}</span>
                 <img src="https://www.iconpacks.net/icons/2/free-add-to-cart-icon-3046-thumb.png"/>
              </div>
             <h1>Home Component</h1>
@@ -21,7 +23,8 @@ function Home()
                     </span>
                 </div>
                 <div className='btn-wrapper item'>
-                    <button>Add to Cart</button>
+                    <button onClick={()=>props.addToCartHandler({price:1000,name:'Harry Potter and the  Order of The Phoenix'})
+                    }>Add to Cart</button>
                 </div>
             </div>
         </div>
